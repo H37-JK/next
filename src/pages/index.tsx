@@ -70,8 +70,8 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-1 ml-10 p-2 z-10 relative min-w-64 max-w-[32rem] border-r border-zinc-800">
-                    <div>ab</div>
+                <div className="flex flex-1 ml-10 p-2 z-10 relative min-w-64 max-w-[32rem] border-r hidden md:block border-zinc-800">
+                    <div className="!w-auto">ab</div>
                 </div>
             </div>
         </div>
