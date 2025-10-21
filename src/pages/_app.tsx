@@ -14,7 +14,7 @@ const pretendard = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-      <main className={`${pretendard.className}`}>
+      <main className={`${pretendard.className} min-h-screen`}>
         <Component {...pageProps} />
       </main>
   )
