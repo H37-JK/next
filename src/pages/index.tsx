@@ -11,10 +11,37 @@ import {CiMenuKebab} from "react-icons/ci";
 import {VscKebabVertical} from "react-icons/vsc";
 import TableMenuListItem from "@/api/TableMenuListItem";
 import TableMenu from "@/components/table/TableMenu";
+import {TbLayoutSidebarLeftCollapse} from "react-icons/tb";
+import {MdCancel} from "react-icons/md";
+import {HiX} from "react-icons/hi";
+import {GoPlus} from "react-icons/go";
+import {FaFilter} from "react-icons/fa";
+import {CiFilter} from "react-icons/ci";
+import {LuFilter} from "react-icons/lu";
+import {MdFormatListBulleted} from "react-icons/md";
+import {BsSend} from "react-icons/bs";
+import {TbRefresh} from "react-icons/tb";
+import {LuRefreshCw} from "react-icons/lu";
+import {ImSpinner2} from "react-icons/im";
+import {useState} from "react";
+import CustomCheckBox from "@/components/checkbox/CustomCheckBox";
+import {IoMdKey} from "react-icons/io";
+import {MdKeyboardArrowDown} from "react-icons/md";
 
 export default function Home() {
+
+    const [isRefreshing, setIsRefreshing] = useState(false)
+
+    const handleRefresh = () => {
+        setIsRefreshing(true)
+
+        setTimeout(() => {
+            setIsRefreshing(false)
+        }, 1500)
+    }
+
     return (
-        <div className="flex flex-col flex-1 min-h-screen">
+        <div className="flex flex-col flex-1 h-screen overflow-hidden">
 
             {/*헤더*/}
             <div className="flex flex-row border-b border-zinc-800 p-3 !py-2 text-sm">
@@ -89,10 +116,10 @@ export default function Home() {
                 </div>
 
 
-                <div className="flex flex-grow">
+                <div className="flex flex-1 pl-10">
                     {/*메뉴*/}
                     <div style={{flex: '29.5 1 0px'}}
-                         className="flex-col ml-10  min-w-64 max-w-[32rem] border-r hidden md:flex border-zinc-800 z-10 box-content">
+                         className="flex-col min-w-64 max-w-[32rem] border-r hidden md:flex border-zinc-800 z-10 box-content">
                         <div className="border-b border-zinc-800 min-h-12 px-6 flex items-center">
                             <h4 className="text-lg">Table Editor</h4>
                         </div>
@@ -124,13 +151,335 @@ export default function Home() {
                         {/*테이블 리스트*/}
                         <div className="pt-1 flex flex-col max-h-[78vh] overflow-auto text-sm">
                             {TableMenuListItem().map((data, index) => (
-                                <TableMenu name={data.name} key={index} />
+                                <TableMenu name={data.name} key={index}/>
                             ))}
                         </div>
                     </div>
+
                     {/*내용*/}
-                    <div style={{flex: '70.5 1 0px'}} className="p-2 ">
-                        test
+                    <div style={{flex: '70.5 1 0px'}} className="flex flex-col overflow-hidden">
+                        {/*테이블 선택 리스트*/}
+                        <div className="border-b border-zinc-800 min-h-10 flex">
+                            {/*메뉴 접기*/}
+                            <div className="border-r border-zinc-800 flex items-center px-2 hover:bg-zinc-800">
+                                <TbLayoutSidebarLeftCollapse
+                                    className="h-6 w-6 fill-transparent stroke-zinc-600 cursor-pointer"/>
+                            </div>
+
+                            <div className="border-r border-zinc-800 group cursor-pointer">
+                                <div
+                                    className="text-xs text-zinc-500 gap-2 flex items-center justify-center flex-1 h-full px-2">
+                                    <div className="gap-1 cursor-pointer flex">
+                                        <div><CiViewTable className="h-4 w-4 fill-gray-400 group-hover:fill-white"/>
+                                        </div>
+                                        <div className="group-hover:text-white">storage<span
+                                            className="text-zinc-400 group-hover:text-white">.bucket</span></div>
+                                    </div>
+                                    <div className="invisible group-hover:visible"><HiX
+                                        className="h-3 w-3 fill-zinc-300  group-hover:fill-white"/></div>
+                                </div>
+                            </div>
+
+                            <div className="border-r border-zinc-800 group cursor-pointer">
+                                <div
+                                    className="text-xs text-zinc-500 gap-2 flex items-center justify-center flex-1 h-full px-2">
+                                    <div className="gap-1 cursor-pointer flex">
+                                        <div><CiViewTable className="h-4 w-4 fill-gray-400 group-hover:fill-white"/>
+                                        </div>
+                                        <div className="group-hover:text-white">storage<span
+                                            className="text-zinc-400 group-hover:text-white">.bucket</span></div>
+                                    </div>
+                                    <div className="invisible group-hover:visible"><HiX
+                                        className="h-3 w-3 fill-zinc-300  group-hover:fill-white"/></div>
+                                </div>
+                            </div>
+
+
+                            <div className="border-r border-zinc-800 group cursor-pointer">
+                                <div
+                                    className="text-xs text-zinc-500 gap-2 flex items-center justify-center flex-1 h-full px-2">
+                                    <div className="gap-1 cursor-pointer flex">
+                                        <div><CiViewTable className="h-4 w-4 fill-gray-400 group-hover:fill-white"/>
+                                        </div>
+                                        <div className="group-hover:text-white">storage<span
+                                            className="text-zinc-400 group-hover:text-white">.bucket</span></div>
+                                    </div>
+                                    <div className="invisible group-hover:visible"><HiX
+                                        className="h-3 w-3 fill-zinc-300  group-hover:fill-white"/></div>
+                                </div>
+                            </div>
+
+                            <div className="cursor-pointer flex items-center px-3 hover:bg-zinc-700">
+                                <div><GoPlus className="h-4 w-4 fill-gray-400 group-hover:fill-white"/></div>
+                            </div>
+                        </div>
+                        {/*필터*/}
+                        <div
+                            className="bg-[#1f1f1f] border-b border-zinc-800 min-h-8 text-sm text-zinc-500 flex items-center p-2">
+                            <div className="flex gap-1">
+                                <div className="flex items-center gap-1 px-2 text-gray-300 text-xs cursor-pointer">
+                                    <div><CiFilter className="h-3.5 w-3.5 fill-gray-300  group-hover:fill-white"/></div>
+                                    <div>필터</div>
+                                </div>
+                                <div className="flex items-center gap-1 px-2 text-gray-300 text-xs cursor-pointer">
+                                    <div><MdFormatListBulleted
+                                        className="h-3.5 w-3.5 fill-gray-300  group-hover:fill-white"/></div>
+                                    <div>정렬</div>
+                                </div>
+                            </div>
+
+                            {/*실시간, 새로 고침*/}
+                            <div className="flex flex-1 justify-end gap-2">
+                                <div
+                                    className="border border-zinc-800 rounded-md text-zinc-200 flex items-center px-3 py-1 text-xs gap-1.5 cursor-pointer">
+                                    <div className="text-zinc-500">
+                                        <BsSend className="h-3 w-3 fill-zinc-500  group-hover:fill-white"/>
+                                    </div>
+                                    <div>실시간 기능</div>
+                                </div>
+                                <div onClick={handleRefresh}
+                                     className="border border-zinc-800 flex items-center justify-center rounded px-2 py-2 cursor-pointer">
+                                    {!isRefreshing ?
+                                        <LuRefreshCw className="h-3.5 w-3.5"/> :
+                                        <ImSpinner2 className="h-3.5 w-3.5 animate-spin"/>}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/*컬럼, 컬럼 값*/}
+                        <div className="flex flex-1 min-h-0 overflow-auto min-w-0">
+                            <div className="flex flex-col">
+                                <div
+                                    className="bg-[#1f1f1f] border-b border-zinc-800 min-h-10 flex text-white">
+                                    <div className="p-2 px-3 border-r border-zinc-800 flex items-center min-h-full">
+                                                                                 <CustomCheckBox id="c"/>
+                                                                             </div>
+                                                                         </div>
+                                                                         <div className="border-b border-zinc-800 min-h-9 text-white flex">                                    <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                        <CustomCheckBox id="cv-1"/>
+                                    </div>
+                                </div>
+                <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                    <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                        <CustomCheckBox id="cv-1"/>
+                                    </div>
+                                </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>      <div className="border-b border-zinc-800 min-h-9 text-white flex">
+                                <div className="p-2 px-3 border-r border-zinc-800 flex items-center">
+                                    <CustomCheckBox id="cv-1"/>
+                                </div>
+                            </div>
+                            </div>
+                            <div className="flex flex-col">
+                                <div
+                                    className="flex items-center min-h-10 bg-[#1f1f1f] p-2 px-3 border-r text-xs gap-2 border-zinc-800 border-b min-w-64">
+                                    <IoMdKey className="h-3.5 w-3.5 fill-green-500"/>
+                                    <div>email</div>
+                                    <div className="text-zinc-500">varchar</div>
+                                    <div className="flex flex-1 justify-end">
+                                        <div className="cursor-pointer">
+                                            <MdKeyboardArrowDown className="h-3.5 w-3.5 fill-zinc-700"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div tabIndex={0} className="border-b border-zinc-800 min-h-9 text-white flex p-2 border-r items-center text-xs min-w-64 focus:ring-1 focus:ring-sky-400 cursor-pointer">
+                                        these990703@gmail.com
+                                </div>
+                            </div>
+                            <div className="flex flex-col">
+                                <div
+                                    className="flex items-center min-h-10 bg-[#1f1f1f] p-2 px-3 border-r text-xs gap-2 border-zinc-800 border-b min-w-64">
+                                    <IoMdKey className="h-3.5 w-3.5 fill-green-500"/>
+                                    <div>email</div>
+                                    <div className="text-zinc-500">varchar</div>
+                                    <div className="flex flex-1 justify-end">
+                                        <div className="cursor-pointer">
+                                            <MdKeyboardArrowDown className="h-3.5 w-3.5 fill-zinc-700"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div tabIndex={0} className="border-b border-zinc-800 min-h-9 text-white flex p-2 border-r items-center text-xs min-w-64 focus:ring-1 focus:ring-sky-400 cursor-pointer">
+                                    these990703@gmail.com
+                                </div>
+                            </div>
+                            <div className="flex flex-col">
+                                <div
+                                    className="flex items-center min-h-10 bg-[#1f1f1f] p-2 px-3 border-r text-xs gap-2 border-zinc-800 border-b min-w-64">
+                                    <IoMdKey className="h-3.5 w-3.5 fill-green-500"/>
+                                    <div>email</div>
+                                    <div className="text-zinc-500">varchar</div>
+                                    <div className="flex flex-1 justify-end">
+                                        <div className="cursor-pointer">
+                                            <MdKeyboardArrowDown className="h-3.5 w-3.5 fill-zinc-700"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div tabIndex={0} className="border-b border-zinc-800 min-h-9 text-white flex p-2 border-r items-center text-xs min-w-64 focus:ring-1 focus:ring-sky-400 cursor-pointer">
+                                    these990703@gmail.com
+                                </div>
+                            </div>
+                            <div className="flex flex-col">
+                                <div
+                                    className="flex items-center min-h-10 bg-[#1f1f1f] p-2 px-3 border-r text-xs gap-2 border-zinc-800 border-b min-w-64">
+                                    <IoMdKey className="h-3.5 w-3.5 fill-green-500"/>
+                                    <div>email</div>
+                                    <div className="text-zinc-500">varchar</div>
+                                    <div className="flex flex-1 justify-end">
+                                        <div className="cursor-pointer">
+                                            <MdKeyboardArrowDown className="h-3.5 w-3.5 fill-zinc-700"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div tabIndex={0} className="border-b border-zinc-800 min-h-9 text-white flex p-2 border-r items-center text-xs min-w-64 focus:ring-1 focus:ring-sky-400 cursor-pointer">
+                                    these990703@gmail.com
+                                </div>
+                            </div>
+                            <div className="flex flex-col">
+                                <div
+                                    className="flex items-center min-h-10 bg-[#1f1f1f] p-2 px-3 border-r text-xs gap-2 border-zinc-800 border-b min-w-64">
+                                    <IoMdKey className="h-3.5 w-3.5 fill-green-500"/>
+                                    <div>email</div>
+                                    <div className="text-zinc-500">varchar</div>
+                                    <div className="flex flex-1 justify-end">
+                                        <div className="cursor-pointer">
+                                            <MdKeyboardArrowDown className="h-3.5 w-3.5 fill-zinc-700"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div tabIndex={0} className="border-b border-zinc-800 min-h-9 text-white flex p-2 border-r items-center text-xs min-w-64 focus:ring-1 focus:ring-sky-400 cursor-pointer">
+                                    these990703@gmail.com
+                                </div>
+                            </div>
+                            <div className="flex flex-col">
+                                <div
+                                    className="flex items-center min-h-10 bg-[#1f1f1f] p-2 px-3 border-r text-xs gap-2 border-zinc-800 border-b min-w-64">
+                                    <IoMdKey className="h-3.5 w-3.5 fill-green-500"/>
+                                    <div>email</div>
+                                    <div className="text-zinc-500">varchar</div>
+                                    <div className="flex flex-1 justify-end">
+                                        <div className="cursor-pointer">
+                                            <MdKeyboardArrowDown className="h-3.5 w-3.5 fill-zinc-700"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div tabIndex={0} className="border-b border-zinc-800 min-h-9 text-white flex p-2 border-r items-center text-xs min-w-64 focus:ring-1 focus:ring-sky-400 cursor-pointer">
+                                    these990703@gmail.com
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col">
+                                <div
+                                    className="flex items-center min-h-10 bg-[#1f1f1f] p-2 px-3 border-r text-xs gap-2 border-zinc-800 border-b min-w-64">
+                                    <div>name</div>
+                                    <div className="text-zinc-500">varchar</div>
+                                    <div className="flex flex-1 justify-end">
+                                        <div className="cursor-pointer">
+                                            <MdKeyboardArrowDown className="h-3.5 w-3.5 fill-zinc-700"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div tabIndex={0} className="border-b border-zinc-800 min-h-9 text-white flex p-2 border-r items-center text-xs min-w-64 focus:ring-1 focus:ring-sky-400 cursor-pointer">
+                                    호종규
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col">
+                                <div
+                                    className="flex items-center min-h-10 justify-center bg-[#1f1f1f] p-2 px-3 border-r text-xs gap-2 border-zinc-800 border-b min-w-48 cursor-pointer hover:bg-zinc-700">
+                                    <GoPlus className="h-4 w-4 fill-gray-400 group-hover:fill-white"/>
+                                </div>
+                                <div tabIndex={0} className="border-b border-zinc-800 min-h-9 text-white flex p-2 border-r items-center text-xs min-w-48 focus:ring-1 focus:ring-sky-400 cursor-pointer">
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
