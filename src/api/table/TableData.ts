@@ -1,7 +1,7 @@
-import {TableMenuProps} from "@/constants/table";
+import {TableProps} from "@/constants/table";
 
-const TableMenuListItem = () => {
-    const menuData: TableMenuProps[] = [
+const TableData = () => {
+    const data: TableProps[] = [
         {
             name: 'user'
         },
@@ -39,16 +39,10 @@ const TableMenuListItem = () => {
             name: 'auth'
         },
         {
-            name: 'user'
+            name: 'user8'
         },
         {
-            name: 'auth'
-        },
-        {
-            name: 'user'
-        },
-        {
-            name: 'auth'
+            name: 'auth7'
         },
         {
             name: 'user'
@@ -60,25 +54,7 @@ const TableMenuListItem = () => {
             name: 'user'
         },
         {
-            name: 'auth'
-        },
-        {
-            name: 'user'
-        },
-        {
-            name: 'auth'
-        },
-        {
-            name: 'user'
-        },
-        {
-            name: 'auth'
-        },
-        {
-            name: 'user'
-        },
-        {
-            name: 'auth'
+            name: 'auth7'
         },
         {
             name: 'user'
@@ -102,6 +78,18 @@ const TableMenuListItem = () => {
             name: 'user'
         },
         {
+            name: 'auth5'
+        },
+        {
+            name: 'user5'
+        },
+        {
+            name: 'auth5'
+        },
+        {
+            name: 'user'
+        },
+        {
             name: 'auth'
         },
         {
@@ -109,11 +97,71 @@ const TableMenuListItem = () => {
         },
         {
             name: 'auth'
+        },
+        {
+            name: 'user'
+        },
+        {
+            name: '44'
+        },
+        {
+            name: 'user44'
+        },
+        {
+            name: 'auth'
+        },
+        {
+            name: 'user'
+        },
+        {
+            name: 'auth'
+        },
+        {
+            name: 'user'
+        },
+        {
+            name: 'auth'
+        },
+        {
+            name: 'user33'
+        },
+        {
+            name: 'auth211'
+        },
+        {
+            name: 'user33'
+        },
+        {
+            name: 'auth211'
+        },
+        {
+            name: 'user33'
+        },
+        {
+            name: 'auth21521'
+        },
+        {
+            name: 'auth211'
+        },
+        {
+            name: 'user33'
+        },
+        {
+            name: 'auth21521'
+        },
+        {
+            name: 'auth211'
+        },
+        {
+            name: 'user33'
+        },
+        {
+            name: 'auth21521'
         },
 
 
     ]
-    return menuData
+    return data
 }
 
-export default TableMenuListItem;
+export default TableData;

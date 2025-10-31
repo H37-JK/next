@@ -1,12 +1,11 @@
-import {CiViewTable} from "react-icons/ci";
-import {TableMenuProps} from "@/constants/table";
+import {SnippetProps} from "@/constants/sql";
+import {BsFiletypeSql} from "react-icons/bs";
 
-
-const TableMenu = ({name}: TableMenuProps) => {
+const SnippetComponent = ({name}: SnippetProps) => {
     return (
         <div
             className="flex group items-center  cursor-pointer hover:bg-zinc-800 p-4 py-1.5 gap-2 text-md">
-            <div><CiViewTable className="h-4 w-4 fill-gray-400 group-hover:fill-white"/></div>
+            <div><BsFiletypeSql className="h-4 w-4 fill-gray-400 group-hover:fill-white"/></div>
             <div className="text-zinc-300 group-hover:text-white">{name}</div>
             <div className="flex flex-1 justify-end">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
@@ -19,7 +18,7 @@ const TableMenu = ({name}: TableMenuProps) => {
                 </svg>
             </div>
         </div>
-    );
+    )
 }
 
-export default TableMenu;
+export default SnippetComponent
