@@ -37,10 +37,10 @@ export default function Home() {
     }
 
     return (
-            <div className="flex flex-1 overflow-hidden pl-10">
+            <div className="flex flex-1 overflow-hidden pl-0 md:pl-10">
                 {/*메뉴*/}
                 <div style={{flex: '29.5 1 0px'}}
-                     className={`${isMenuToggle ? 'min-w-64 max-w-[32rem] border-r' : 'border-0 min-w-0 max-w-0 w-0'} transition-all duration-150 ease-linear flex flex-col border-zinc-800 z-10 box-content overflow-hidden`}>
+                     className={`${isMenuToggle ? 'min-w-64 max-w-[32rem] border-r' : 'border-0 min-w-0 max-w-0 w-0'} hidden md:flex transition-all duration-150 ease-linear flex-col border-zinc-800 z-10 box-content overflow-hidden`}>
                     <div className="border-b border-zinc-800 min-h-12 px-6 flex items-center">
                         <h4 className="text-lg">테이블 에디터</h4>
                     </div>

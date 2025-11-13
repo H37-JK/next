@@ -31,6 +31,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.scroll-decoration {
+  display: none;
+}
+
+
+
 #__next, .pretendard_f7aab82a-module__wiIwCq__className {
   width: 100%;
   height: 100%;

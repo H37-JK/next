@@ -1,14 +1,15 @@
 import {BiBook} from "react-icons/bi";
 import {RiTerminalBoxFill} from "react-icons/ri";
+import { TiCloudStorage } from "react-icons/ti";
 import Link from "next/link";
 
 const SideMenuList = () => {
     return (
         <div
-            className="px-0 absolute top-0 bottom-0 hover:px-2 py-1 w-10 hover:w-60 transition-all duration-150 ease-linear z-[99] border group border-t-0 border-zinc-800 !bg-[#171717] flex flex-col">
+            className="px-0 absolute hidden md:flex space-y-0.5 top-0 bottom-0 w-10 hover:w-60 transition-all duration-150 ease-linear z-[99] border group border-t-0 border-zinc-800 !bg-[#171717] flex-col">
             <Link href="/">
                 <div
-                    className="p-2 hover:bg-zinc-600 group cursor-pointer flex items-center text-sm text-zinc-50 space-x-1">
+                    className="p-2 hover:bg-zinc-800 rounded group cursor-pointer flex items-center text-sm text-zinc-50 space-x-2">
                     <div>
                         <BiBook className="h-5 w-5 text-[rgb(137,137,137)] cursor-pointer group-hover:text-white"/>
                     </div>
@@ -19,13 +20,39 @@ const SideMenuList = () => {
             </Link>
             <Link href="/sql">
                 <div
-                    className="p-2 hover:bg-zinc-600 group cursor-pointer flex items-center text-sm text-zinc-200 space-x-1">
+                    className="p-2 hover:bg-zinc-800 rounded group cursor-pointer flex items-center text-sm text-zinc-200 space-x-2">
                     <div>
                         <RiTerminalBoxFill
                             className="h-5 w-5 text-[rgb(137,137,137)] cursor-pointer group-hover:text-zinc-200"/>
                     </div>
                     <div className="hidden group-hover:flex whitespace-nowrap">
                         쿼리 에디터
+                    </div>
+                </div>
+            </Link>
+            <Link href="/storage">
+                <div
+                    className="p-2 hover:bg-zinc-800 rounded group cursor-pointer flex items-center text-sm text-zinc-200 space-x-2">
+                    <div>
+                        <TiCloudStorage
+                            className="h-5 w-5 text-[rgb(137,137,137)] cursor-pointer group-hover:text-zinc-200"/>
+                    </div>
+                    <div className="hidden group-hover:flex whitespace-nowrap">
+                        스토리지
+                    </div>
+                </div>
+            </Link>
+            <Link href="/storage">
+                <div
+                    className="p-2 hover:bg-zinc-800 rounded group cursor-pointer flex items-center text-sm text-zinc-200 space-x-2">
+                    <div>
+                        <svg data-v-485eaaba="" viewBox="0 0 24 24" className="svg-icons h-5 w-5 text-[rgb(137,137,137)] group-hover:text-zinc-200">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="2" d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"></path>
+                        </svg>
+                    </div>
+                    <div className="hidden group-hover:flex whitespace-nowrap">
+                        API
                     </div>
                 </div>
             </Link>

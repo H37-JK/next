@@ -18,6 +18,7 @@ import TableValueComponent from "@/components/table/TableValueComponent";
 import SnippetData from "@/api/sql/SnippetData";
 import SnippetComponent from "@/components/sql/SnippetComponent";
 import { MdTextSnippet } from "react-icons/md";
+import CodeEditor from "@/components/editor/CodeEditor";
 
 export default function Home() {
 
@@ -38,10 +39,10 @@ export default function Home() {
     }
 
     return (
-        <div className="flex flex-1 overflow-hidden pl-10">
+        <div className="flex flex-1 overflow-hidden pl-0 md:pl-10">
             {/*메뉴*/}
             <div style={{flex: '29.5 1 0px'}}
-                 className={`${isMenuToggle ? 'min-w-64 max-w-[32rem] border-r' : 'border-0 min-w-0 max-w-0 w-0'} transition-all duration-150 ease-linear flex flex-col border-zinc-800 z-10 box-content overflow-hidden`}>
+                 className={`${isMenuToggle ? 'min-w-64 max-w-[32rem] border-r' : 'border-0 min-w-0 max-w-0 w-0'} hidden md:flex transition-all duration-150 ease-linear flex-col border-zinc-800 z-10 box-content overflow-hidden`}>
                 <div className="border-b border-zinc-800 min-h-12 px-6 flex items-center">
                     <h4 className="text-lg">쿼리 에디터</h4>
                 </div>
@@ -65,7 +66,7 @@ export default function Home() {
 
                 {/*템플릿 리스트*/}
                 <div className="flex flex-col text-sm overflow-auto border-b border-zinc-800 mb-2">
-                    <h4 className="text-ms py-1.5 p-4 text-zinc-400">커뮤니티 (1)</h4>
+                    <h4 className="text-ms py-1 p-4 text-zinc-400">커뮤니티 (1)</h4>
                     <div
                         className="flex group items-center  cursor-pointer hover:bg-zinc-800 p-4 py-1.5 gap-2 text-md">
                         <div><MdTextSnippet className="h-4 w-4 fill-gray-400 group-hover:fill-white"/></div>
@@ -133,8 +134,44 @@ export default function Home() {
                     <div className="cursor-pointer flex items-center px-3 hover:bg-zinc-700">
                         <div><GoPlus className="h-4 w-4 fill-gray-400 group-hover:fill-white"/></div>
                     </div>
+
                 </div>
 
+                <div className="flex flex-1">
+                    <CodeEditor />
+                </div>
+
+                <div className="min-h-96">
+                    <div className="border-b border-zinc-800 flex items-center text-sm divide-x divide-zinc-800">
+                        <div className="p-2 py-2 text-xs cursor-pointer text-gray-300 hover:text-gray-100">Result</div>
+                        <div className="p-2 py-2 text-xs cursor-pointer text-gray-300 hover:text-gray-100">Result</div>
+
+                        <div className="flex flex-1 justify-end">
+                            <div className="border border-zinc-800 rounded-md bg-zinc-600 flex mr-3 text-xs">
+                                <div className="px-8 py-1 border-r border-zinc-600 rounded-l-md bg-zinc-700 hover:bg-zinc-600 cursor-pointer">source</div>
+                                <div className="px-8 py-1 border-r border-zinc-600 bg-zinc-700 hover:bg-zinc-600 cursor-pointer">postgres</div>
+                                <div className="flex flex-1 px-8 py-1 bg-green-900 hover:bg-green-800 rounded-r-md cursor-pointer">
+                                    <div>Run</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex">
+                        {TableColumnData().map((data, key) => (
+                            <TableColumnComponent primaryKey={data.primaryKey} name={data.name} type={data.type}/>
+                        ))}
+
+                    </div>
+
+                    <div className="flex">
+                        {TableValueData().map((data, index) => (
+                            <TableValueComponent columnName={data.columnName} value={data.value}/>
+                        ))}
+
+
+                    </div>
+                </div>
 
             </div>
         </div>
