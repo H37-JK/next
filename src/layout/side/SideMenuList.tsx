@@ -7,6 +7,16 @@ import { CiMonitor } from "react-icons/ci";
 import { IoTerminal } from "react-icons/io5";
 import { TbHeartRateMonitor } from "react-icons/tb";
 import { PiNotebookDuotone } from "react-icons/pi";
+import { FaChrome } from "react-icons/fa";
+import { MdOutlineSnippetFolder } from "react-icons/md";
+import { MdOutlineTextSnippet } from "react-icons/md";
+import { FaPhotoVideo } from "react-icons/fa";
+import { MdVideoLibrary } from "react-icons/md";
+import { FaCode } from "react-icons/fa6";
+import { CiViewTable } from "react-icons/ci"
+import { FaTableList } from "react-icons/fa6";
+import { TbMessageChatbotFilled } from "react-icons/tb";
+import { FaPencilAlt } from "react-icons/fa";
 
 const SideMenuList = () => {
     return (
@@ -16,7 +26,7 @@ const SideMenuList = () => {
                 <div
                     className="p-2 hover:bg-zinc-800 rounded group cursor-pointer flex items-center text-sm text-zinc-50 space-x-2">
                     <div>
-                        <BiBook className="h-5 w-5 text-[rgb(137,137,137)] cursor-pointer group-hover:text-white"/>
+                        <CiViewTable className="h-5 w-5 text-[rgb(137,137,137)] cursor-pointer group-hover:text-white"/>
                     </div>
                     <div className="hidden group-hover:flex whitespace-nowrap">
                         테이블 에디터
@@ -65,7 +75,7 @@ const SideMenuList = () => {
                 <div
                     className="p-2 hover:bg-zinc-800 rounded group cursor-pointer flex items-center text-sm text-zinc-200 space-x-2">
                     <div>
-                        <IoChatbubbleEllipses
+                        <TbMessageChatbotFilled
                             className="h-5 w-5 text-[rgb(137,137,137)] cursor-pointer group-hover:text-zinc-200"/>
                     </div>
                     <div className="hidden group-hover:flex whitespace-nowrap">
@@ -123,6 +133,66 @@ const SideMenuList = () => {
                     </div>
                     <div className="hidden group-hover:flex whitespace-nowrap">
                         노트
+                    </div>
+                </div>
+            </Link>
+            <Link href="/storage">
+                <div
+                    className="p-2 hover:bg-zinc-800 rounded group cursor-pointer flex items-center text-sm text-zinc-200 space-x-2">
+                    <div>
+                        <FaChrome
+                            className="h-5 w-5 text-[rgb(137,137,137)] cursor-pointer group-hover:text-zinc-200"/>
+                    </div>
+                    <div className="hidden group-hover:flex whitespace-nowrap">
+                        웹
+                    </div>
+                </div>
+            </Link>
+            <Link href="/storage">
+                <div
+                    className="p-2 hover:bg-zinc-800 rounded group cursor-pointer flex items-center text-sm text-zinc-200 space-x-2">
+                    <div>
+                        <MdOutlineSnippetFolder
+                            className="h-5 w-5 text-[rgb(137,137,137)] cursor-pointer group-hover:text-zinc-200"/>
+                    </div>
+                    <div className="hidden group-hover:flex whitespace-nowrap">
+                        스니펫
+                    </div>
+                </div>
+            </Link>
+            <Link href="/storage">
+                <div
+                    className="p-2 hover:bg-zinc-800 rounded group cursor-pointer flex items-center text-sm text-zinc-200 space-x-2">
+                    <div>
+                        <FaPhotoVideo
+                            className="h-5 w-5 text-[rgb(137,137,137)] cursor-pointer group-hover:text-zinc-200"/>
+                    </div>
+                    <div className="hidden group-hover:flex whitespace-nowrap">
+                        비디오
+                    </div>
+                </div>
+            </Link>
+            <Link href="/storage">
+                <div
+                    className="p-2 hover:bg-zinc-800 rounded group cursor-pointer flex items-center text-sm text-zinc-200 space-x-2">
+                    <div>
+                        <FaCode
+                            className="h-5 w-5 text-[rgb(137,137,137)] cursor-pointer group-hover:text-zinc-200"/>
+                    </div>
+                    <div className="hidden group-hover:flex whitespace-nowrap">
+                        코드
+                    </div>
+                </div>
+            </Link>
+            <Link href="/storage">
+                <div
+                    className="p-2 hover:bg-zinc-800 rounded group cursor-pointer flex items-center text-sm text-zinc-200 space-x-2">
+                    <div>
+                        <FaPencilAlt
+                            className="h-5 w-5 text-[rgb(137,137,137)] cursor-pointer group-hover:text-zinc-200"/>
+                    </div>
+                    <div className="hidden group-hover:flex whitespace-nowrap">
+                        스케치
                     </div>
                 </div>
             </Link>
