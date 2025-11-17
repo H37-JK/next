@@ -35,7 +35,49 @@ body {
   display: none;
 }
 
+.tab.active:after {
+  content: "";
+  background-color: #6366f1;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  right: 1rem;
+  bottom: -8px;
+  z-index: 2;
+  height: .125rem;
+  --tw-content: "";
+}
 
+.cm-editor {
+  background-color: #181818 !important; /* 원하는 배경색으로 변경 */
+}
+
+.cm-activeLine {
+  background-color: #181818 !important; /* 활성 줄 배경색 */
+}
+
+.cm-gutters {
+  background-color: #181818 !important; /* 에디터 배경색과 동일하게 맞추는 것이 좋음 */
+  border-right: 1px solid #181818; /* 구분선 색상 */
+  color: #abb2bf; /* 줄 번호 색상 */
+}
+
+.ͼo .cm-activeLineGutter {
+  background-color: #181818;
+}
+
+.ͼo .cm-gutters {
+  border-left: 1px solid #27272a;
+  border-right: 1px solid #27272a;
+}
+
+.ͼq {
+  color: #6fa3f8
+}
+
+.ͼ13 {
+  color: #ffffff
+}
 
 #__next, .pretendard_f7aab82a-module__wiIwCq__className {
   width: 100%;

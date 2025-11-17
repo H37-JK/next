@@ -51,7 +51,7 @@ export default function Home() {
                     <div className="relative">
                         <IoSearchOutline
                             className="h-3 w-3 fill-transparentstroke-zinc-500 cursor-pointer absolute top-2 left-2"/>
-                        <input placeholder="테이블을 검색해 주세요." type="text"
+                        <input placeholder="스니펫을 검색해 주세요." type="text"
                                className="h-[26px] cursor-pointer text-xs px-2.5 pl-7 py-1 border outline-none border-zinc-800 rounded-md w-full focus:border-zinc-700"/>
                     </div>
                 </div>

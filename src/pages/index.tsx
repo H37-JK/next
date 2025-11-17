@@ -163,7 +163,7 @@ export default function Home() {
                                 <div>실시간 기능</div>
                             </div>
                             <div onClick={handleRefresh}
-                                 className="border border-zinc-800 flex items-center justify-center rounded px-2 py-2 cursor-pointer ">
+                                 className={`border border-zinc-800 flex items-center justify-center rounded px-2 py-2 ${isRefreshing ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
                                 {!isRefreshing ?
                                     <LuRefreshCw className="h-3.5 w-3.5"/> :
                                     <ImSpinner2 className="h-3.5 w-3.5 animate-spin"/>}

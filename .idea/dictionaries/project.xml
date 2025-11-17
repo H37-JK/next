@@ -2,8 +2,14 @@
   <dictionary name="project">
     <words>
       <w>pretendard</w>
+      <w>되었습니다</w>
       <w>사이드바</w>
+      <w>아이템조회</w>
+      <w>요청모음</w>
+      <w>요청입력</w>
       <w>커뮤니티</w>
+      <w>테스트결과</w>
+      <w>파라미터</w>
     </words>
   </dictionary>
 </component>
