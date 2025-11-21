@@ -9,6 +9,8 @@ services:
       POSTGRES_USER: hjk
       POSTGRES_PASSWORD: star8903
       POSTGRES_DB: main
+      TZ: Asia/Seoul
+      PGTZ: Asia/Seoul
     ports:
       - "5432:5432"
     volumes:

@@ -79,6 +79,49 @@ body {
   color: #ffffff
 }
 
+.markdown-body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #e6edf3;
+  border-radius: 8px;
+}
+
+.markdown-body h3 {
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 0.3em;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body li {
+  margin-bottom: 0.5em;
+}
+
+.markdown-body pre {
+  padding: 16px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.markdown-body code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 85%;
+}
+
+.markdown-body pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
 #__next, .pretendard_f7aab82a-module__wiIwCq__className {
   width: 100%;
   height: 100%;

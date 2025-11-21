@@ -279,7 +279,7 @@ export default function Home() {
 
             {isShowAlert &&
                 <div className="absolute right-6 bottom-6">
-                    <div className="bg-green-400 w-32 px-4 py-1.5 rounded-md text-gray-900 font-bold text-sm">저장 되었습니다.</div>
+                    <div className="bg-green-400 w-32 px-4 py-1.5 rounded-md text-white font-bold text-sm">저장 되었습니다.</div>
                 </div>
             }
         </div>

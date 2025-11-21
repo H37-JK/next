@@ -71,7 +71,7 @@ const SideMenuList = () => {
                     </div>
                 </div>
             </Link>
-            <Link href="/storage">
+            <Link href="/ai">
                 <div
                     className="p-2 hover:bg-zinc-800 rounded group cursor-pointer flex items-center text-sm text-zinc-200 space-x-2">
                     <div>
