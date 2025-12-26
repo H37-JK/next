@@ -17,7 +17,7 @@ def extended_gcd(a: int, b: int) ->tuple[int, int, int]:
     assert b % d == 0
     assert d == a * x + b * y
 
-    return (d, x, y)
+    return d, x, y
 
 
 if __name__ == "__main__":
