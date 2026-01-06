@@ -8,7 +8,7 @@ services:
     environment:
       POSTGRES_USER: hjk
       POSTGRES_PASSWORD: star8903
-      POSTGRES_DB: main
+      POSTGRES_DB: postgres
       TZ: Asia/Seoul
       PGTZ: Asia/Seoul
     ports:
@@ -21,9 +21,11 @@ services:
     container_name: backend
     restart: always
     environment:
-      - DATABASE_URL=postgresql://hjk:star8903@db:5432/main
+      - DATABASE_URL=postgresql://hjk:star8903@localhost:5432/postgres
     ports:
-      - "8000:8000"
+      - "8001:8000"
+    volumes:
+      - ../backend:/app
     depends_on:
       - db
 
@@ -32,9 +34,13 @@ services:
     container_name: frontend
     restart: always
     ports:
-      - "3000:3000"
+      - "3001:3000"
     environment:
       - NEXT_PUBLIC_API_URL=http://localhost:8000
+    volumes:
+      - ../frontend:/app
+      - /app/node_modules
+      - /app/.next
     depends_on:
       - backend
 
