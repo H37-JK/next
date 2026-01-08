@@ -15,8 +15,8 @@ CREATE TABLE users (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO users (username, email, password)
-VALUES ('호종규', 'these990703@gmail.com', 'star8903');
+INSERT INTO public.user (email)
+VALUES ('these990703@gmail.com');
 
 SELECT *
 FROM users;

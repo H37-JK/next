@@ -1,12 +1,8 @@
-from typing import Annotated
-from fastapi import FastAPI, Depends, HTTPException
-from sqlmodel import Field, Session, SQLModel, create_engine, select
-
-from backend.model.engine import SessionDep
-
+from sqlmodel import Field, SQLModel
+from pydantic import EmailStr
 
 class User(SQLModel, table = True):
     id: int | None = Field(default = None, primary_key = True)
-    email: str = Field(index = True)
-
-
+    email: EmailStr = Field(index = True, nullable = False)
+    password: str = Field(nullable = False)
+    name: str | None = Field(nullable = True)
