@@ -1,0 +1,13 @@
+# Python (backend)
+.venv/
+__pycache__/
+outbox/
+
+# Node (frontend)
+node_modules/
+.next/
+next-env.d.ts
+
+# 비밀값
+.env
+.env.local

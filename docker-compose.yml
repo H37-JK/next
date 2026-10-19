@@ -1,0 +1,15 @@
+# 예제용 PostgreSQL. `docker compose up -d` 로 켠다.
+services:
+  db:
+    image: pgvector/pgvector:pg17   # PostgreSQL 17 + pgvector 확장
+    environment:
+      POSTGRES_USER: hjk
+      POSTGRES_PASSWORD: star8903
+      POSTGRES_DB: hjk
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
