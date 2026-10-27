@@ -12,3 +12,6 @@ next-env.d.ts
 # 비밀값
 .env
 .env.local
+
+# IDE (JetBrains)
+.idea/
